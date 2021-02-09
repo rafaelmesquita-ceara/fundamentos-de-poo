@@ -7,8 +7,7 @@ namespace Exercicio_04
   {
     static void Main(string[] args)
     {
-      Televisao televisao = new Televisao();
-      ControleRemoto controle = new ControleRemoto(televisao);
+      ControleRemoto controle = new ControleRemoto();
       while (true) Menu(controle);
     }
 

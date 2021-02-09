@@ -2,24 +2,22 @@ namespace Model
 {
   public class Televisao
   {
-    internal int Volume { get; set; }
-    internal string Canal { get; set; }
+    protected int Volume { get; set; }
+    protected string Canal { get; set; }
   }
 
-  public class ControleRemoto
+  public class ControleRemoto : Televisao
   {
-    public Televisao Televisao { get; set; }
-    public ControleRemoto(Televisao televisao) => Televisao = televisao;
 
-    public void AumentarVolume() => Televisao.Volume++;
-    public void DiminuirVolume() => Televisao.Volume--;
+    public void AumentarVolume() => this.Volume++;
+    public void DiminuirVolume() => this.Volume--;
 
-    public void TrocarCanal(string canal) => Televisao.Canal = canal;
+    public void TrocarCanal(string canal) => this.Canal = canal;
 
     public void ConsultarInformacoes()
     {
-      System.Console.WriteLine($"Canal atual: {Televisao.Canal}");
-      System.Console.WriteLine($"Volume atual: {Televisao.Volume}");
+      System.Console.WriteLine($"Canal atual: {this.Canal}");
+      System.Console.WriteLine($"Volume atual: {this.Volume}");
     }
   }
 }
