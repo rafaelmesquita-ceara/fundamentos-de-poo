@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using Balta.NotificationContext;
+using Balta.SharedContext;
 
 namespace Balta.ContentContext
 {
   public class CareerItem : Base
   {
-    public IList<string> Notifications { get; set; }
     public CareerItem(
       int order,
       string title,
