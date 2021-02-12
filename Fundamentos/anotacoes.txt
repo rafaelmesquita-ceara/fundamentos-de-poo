@@ -26,3 +26,35 @@ Modificadores de acesso
   -> protected (Visível para os filhos da classe)
   -> internal (Visivel no mesmo namespace)
   -> public (Acessível em qualquerl lugar da aplicação)
+
+prop
+propg
+propfull
+
+IDisposable:
+  -> Interface que ao ser implementada, permite o uso do using
+  -> Serve para destruir o objeto, quando implementada nele
+  
+Modificador static
+  -> Quando uma classe é estática, ela não pode ser instanciada
+  -> Classe estática fica disponivel ao iniciar a aplicação
+  -> Podemos usar diretamente a classe, sem a necessidade de ser instanciada
+  -> Classes estáticas, métodos estáticos, propriedades estáticasa
+  -> Uma classe que será usada no contexto completo da aplicação, é bom ser estática
+  -> Por exemplo: public static class Settings 
+
+Modificador sealed
+  -> Quando uma classe é selada, não é possível extender ela
+
+Modificador partial
+  -> Divide a mesma classe em dois arquivos no mesmo namespace
+
+Interfaces
+  -> Quando definimos uma interface, criamos um contrato de como uma classe deve ser
+
+Abstract
+  -> Definimos uma classe abstrata quando ela não pode ser instanciada
+  -> Possuem uma implementação base
+
+Delegate
+  -> Delega a função para outro lugar

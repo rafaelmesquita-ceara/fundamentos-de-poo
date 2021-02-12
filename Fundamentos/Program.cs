@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Fudnamentos_de_OO
 {
@@ -6,48 +8,45 @@ namespace Fudnamentos_de_OO
   {
     static void Main(string[] args)
     {
-      var pagamentoBoleto = new PagamentoBoleto();
-      pagamentoBoleto.Vencimento = DateTime.Now;
-      pagamentoBoleto.NumeroBoleto = "1234";
+      var payments = new List<Payment>();
 
+      payments.Add(new Payment(1));
+      payments.Add(new Payment(2));
+      payments.Add(new Payment(3));
+      payments.Add(new Payment(4));
+      payments.Add(new Payment(5));
 
-      var pagamento = new Pagamento();
-      Console.WriteLine("Hello World!");
+      foreach (var payment in payments)
+      {
+        Console.WriteLine(payment.Id);
+      }
+
+      var paidPayments = new List<Payment>();
+      
+      // Adiciona uma lista dentro de outra
+      paidPayments.AddRange(payments);
+
+      // Retorna uma lista
+      var paymentList = payments.Where(x => x.Id == 3);
+
+      // Retorna um Payment
+      var paymentOne = payments.First(x => x.Id == 3);
+
+      // Remove um item da lista
+      payments.Remove(paymentOne);
+
+      // Limpa toda a lista
+      payments.Clear();
     }
   }
 
-  class Pagamento
+  public class Payment
   {
-    // Propriedades
-    public DateTime Vencimento;
-
-    // Métodos 
-    public virtual void Pagar()
+    public int Id { get; set; }
+    public Payment(int id)
     {
-    }
-
-    public override string ToString()
-    {
-      return Vencimento.ToString("dd/mm/yy");
+      Id = id;
     }
   }
 
-  class PagamentoBoleto : Pagamento
-  {
-    public string NumeroBoleto;
-    public override void Pagar()
-    {
-      // Regra do boleto
-    }
-  }
-
-  class PagamentoCartaoCredito : Pagamento
-  {
-      public string Numero;
-
-    public override void Pagar()
-    {
-      // Regra do Cartão de Crédito
-    }
-  }
 }
