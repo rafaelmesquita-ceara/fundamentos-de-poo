@@ -1,7 +1,11 @@
+using System.Collections.Generic;
+using Balta.NotificationContext;
+
 namespace Balta.ContentContext
 {
-  public class CareerItem
+  public class CareerItem : Base
   {
+    public IList<string> Notifications { get; set; }
     public CareerItem(
       int order,
       string title,
@@ -10,7 +14,7 @@ namespace Balta.ContentContext
       )
     {
       if(course == null)
-        throw new System.Exception("O curso não pode ser nulo");
+        AddNotification(new Notification("Course", "Curso inválido"));
       Order = order;
       Title = title;
       Description = description;
